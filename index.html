@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendamento - Soul Beauty</title>
+<style>
+body { font-family: Arial, sans-serif; background: #fff; margin:0; padding:0; color:#1A1A1A;}
+.container{max-width:600px;margin:auto;padding:20px;}
+h1{font-size:32px;margin-bottom:5px;}
+.subtitle{font-size:14px;color:#555;margin-bottom:20px;}
+label{font-weight:bold;}
+input,select,textarea{width:100%;padding:10px;margin-top:5px;margin-bottom:20px;border:1px solid #ddd;border-radius:8px;font-size:14px;}
+button{width:100%;padding:12px;background:#000;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;}
+button:hover{opacity:0.9;}
+.policies,.tips{background:#f9f9f9;padding:15px;border-radius:10px;margin-top:20px;font-size:14px;border:1px solid #eee;}
+footer{text-align:center;font-size:12px;margin-top:30px;color:#777;}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Soul Beauty</h1>
+<p class="subtitle">Agende seu atendimento • Oiapoque - AP</p>
+<form id="formAgenda">
+<label>Seu Nome</label>
+<input type="text" id="nome" placeholder="Nome completo" required />
+<label>WhatsApp</label>
+<input type="text" id="telefone" placeholder="(99) 9 9999-9999" required />
+<label>Serviço</label>
+<select id="servico">
+<option value="Fio a Fio Natural - R$150">Fio a Fio Natural — R$150</option>
+<option value="Volume Híbrido - R$180">Volume Híbrido — R$180</option>
+<option value="Volume Brasileiro - R$160">Volume Brasileiro — R$160</option>
+<option value="Volume Egípcio - R$160">Volume Egípcio — R$160</option>
+<option value="Fox Eyes - R$190">Volume Fox Eyes — R$190</option>
+<option value="Lash Lifting + Tintura - R$120">Lash Lifting + Tintura — R$120</option>
+<option value="Tufos de Seda - R$60">Tufos de Seda — R$60</option>
+<option value="Designer de Sobrancelhas - R$30">Designer — R$30</option>
+<option value="Designer + Henna - R$50">Designer + Henna — R$50</option>
+<option value="Designer + Tintura - R$50">Designer + Tintura — R$50</option>
+<option value="Brow Lamination - R$125">Brow Lamination — R$125</option>
+</select>
+<label>Data</label>
+<input type="date" id="data" required />
+<label>Horário</label>
+<select id="hora" required>
+<option value="">Selecione</option>
+<option>09:00</option>
+<option>10:30</option>
+<option>12:00</option>
+<option>14:00</option>
+<option>15:30</option>
+<option>17:00</option>
+</select>
+<label>Observações</label>
+<textarea id="obs" rows="3" placeholder="Alergias, preferências, etc."></textarea>
+<label><input type="checkbox" id="politica" required /> Aceito as políticas de atendimento</label>
+<button type="submit">Agendar via WhatsApp</button>
+</form>
+<div class="policies"><strong>Políticas:</strong><ul><li>Cancelamento gratuito até 12h antes.</li><li>Atrasos acima de 15min podem exigir reagendamento.</li><li>Chegar com os olhos limpos para extensão de cílios.</li></ul></div>
+<div class="tips"><strong>Dicas Pré-Atendimento:</strong><ul><li>Evite maquiagem no dia.</li><li>Traga óculos de grau, se usar.</li><li>Não dormir de bruços após colocar cílios.</li></ul></div>
+<footer>© 2025 Soul Beauty — Oiapoque, AP</footer>
+</div>
+<script>
+document.getElementById("formAgenda").addEventListener("submit", function(e){
+ e.preventDefault();
+ const nome=document.getElementById("nome").value;
+ const telefone=document.getElementById("telefone").value;
+ const servico=document.getElementById("servico").value;
+ const data=document.getElementById("data").value;
+ const hora=document.getElementById("hora").value;
+ const obs=document.getElementById("obs").value;
+ const numeroWhatsApp="5596991250044";
+ const texto=`Olá Soul Beauty! Quero agendar:%0A%0AServiço: ${servico}%0ANome: ${nome}%0AWhatsApp: ${telefone}%0AData: ${data}%0AHora: ${hora}%0AObservações: ${obs}`;
+ const url=`https://wa.me/${numeroWhatsApp}?text=${texto}`;
+ window.open(url,"_blank");
+});
+</script>
+</body>
+</html>
